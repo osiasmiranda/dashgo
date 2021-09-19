@@ -1,6 +1,6 @@
 import Link, { LinkProps } from 'next/link';
-import { cloneElement, ReactElement } from 'react';
 import { useRouter } from 'next/router';
+import { cloneElement, ReactElement } from 'react';
 
 interface ActiveLinkProps extends LinkProps {
   children: ReactElement;
@@ -9,7 +9,7 @@ interface ActiveLinkProps extends LinkProps {
 
 export default function ActiveLink({
   children,
-  shouldMathExact,
+  shouldMathExact = false,
   ...rest
 }: ActiveLinkProps) {
   const { asPath } = useRouter();
@@ -21,8 +21,8 @@ export default function ActiveLink({
   }
 
   if (
-    (!shouldMathExact && asPath.startsWith(String(rest.href))) ||
-    asPath.startsWith(String(rest.as))
+    !shouldMathExact &&
+    (asPath.startsWith(String(rest.href)) || asPath.startsWith(String(rest.as)))
   ) {
     isActive = true;
   }

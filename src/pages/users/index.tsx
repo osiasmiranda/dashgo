@@ -17,8 +17,7 @@ import {
 import React from 'react';
 import { RiAddLine, RiPencilLine } from 'react-icons/ri';
 
-import Header from '../../components/Header';
-import { Sidebar } from '../../components/Sidebar';
+import { Header, Sidebar } from '../../components';
 import Pagination from '../../components/Pagination';
 import Link from 'next/link';
 
@@ -30,10 +29,16 @@ export default function UserList() {
   return (
     <Box>
       <Header />
+
       <Flex w='100%' my='6' maxWidth={1480} mx='auto' px='6'>
         <Sidebar />
-        <Box flex='1' borderRadius={8} bgColor='gray.800' p='8'>
-          {/* <!--Cabeçalho ->> */}
+        <Box
+          flex='1'
+          borderRadius={8}
+          bgColor='gray.800'
+          p='8'
+          overflowX='auto'
+        >
           <Flex mb='8' justify='space-between' align='center'>
             <Heading size='lg' fontWeight='normal'>
               Usuários
@@ -51,7 +56,6 @@ export default function UserList() {
               </Button>
             </Link>
           </Flex>
-          {/* <!--Tabela ->> */}
           <Table colorScheme='whiteAlpha'>
             <Thead>
               <Tr>
@@ -70,7 +74,7 @@ export default function UserList() {
                 </Td>
                 <Td>
                   <Box>
-                    <Text FontWeight='Bold'>Osias Miranda</Text>
+                    <Text fontWeight='Bold'>Osias Miranda</Text>
                     <Text fontSize='sm' color='gray.300'>
                       osiasmiranda@gmail.com
                     </Text>

@@ -15,8 +15,8 @@ export default function PaginationItem({
         fontSize='xs'
         width='4'
         colorScheme='pink'
-        disable
-        _disabled={{
+        //disable
+        disable={{
           bg: 'pink.500',
           cursor: 'default',
         }}
